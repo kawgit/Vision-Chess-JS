@@ -201,7 +201,11 @@ function updatePlayMode() {
 }
 
 function doMove(moveString) {
-    pos.do_str_move(moveString);
+    if (!pos.do_str_move(moveString)) {
+        clearBoard();
+        drawPosition(pos);
+        return;
+    };
 
     requestEnginePosition();
     if (!isUserTurn()) {
@@ -219,8 +223,6 @@ function doMove(moveString) {
     const fromSquareIndex = get_from(moveEncoding);
     const toSquareIndex = get_to(moveEncoding);
     const flags = get_flags(moveEncoding);
-
-    console.log(fromSquareIndex)
 
     const fromPieceElement = getPieceElement(fromSquareIndex)
     const toPieceElement = getPieceElement(toSquareIndex)

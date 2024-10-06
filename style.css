@@ -66,6 +66,10 @@ h3 {
     height: 12.5%;
     position: absolute;
     object-fit: contain;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .piece {

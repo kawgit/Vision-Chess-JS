@@ -19,18 +19,18 @@ const BLACK = 0b01000;
 
 function not_color(color) { return (color == WHITE ? BLACK : WHITE); }
 
-const BLACK_PAWN = PAWN | BLACK;
-const BLACK_KNIGHT = KNIGHT | BLACK;
-const BLACK_BISHOP = BISHOP | BLACK;
-const BLACK_ROOK = ROOK | BLACK;
-const BLACK_QUEEN = QUEEN | BLACK;
-const BLACK_KING = KING | BLACK;
-const WHITE_PAWN = PAWN | WHITE;
-const WHITE_KNIGHT = KNIGHT | WHITE;
-const WHITE_BISHOP = BISHOP | WHITE;
-const WHITE_ROOK = ROOK | WHITE;
-const WHITE_QUEEN = QUEEN | WHITE;
-const WHITE_KING = KING | WHITE;
+const BLACK_PAWN   = BLACK | PAWN;
+const BLACK_KNIGHT = BLACK | KNIGHT;
+const BLACK_BISHOP = BLACK | BISHOP;
+const BLACK_ROOK   = BLACK | ROOK;
+const BLACK_QUEEN  = BLACK | QUEEN;
+const BLACK_KING   = BLACK | KING;
+const WHITE_PAWN   = WHITE | PAWN;
+const WHITE_KNIGHT = WHITE | KNIGHT;
+const WHITE_BISHOP = WHITE | BISHOP;
+const WHITE_ROOK   = WHITE | ROOK;
+const WHITE_QUEEN  = WHITE | QUEEN;
+const WHITE_KING   = WHITE | KING;
 
 const PIECENONE = (WHITE | BLACK | KING) + 1;
 
@@ -1094,9 +1094,10 @@ class Pos {
 		for (let i in moves) {
 			if (str == get_SAN(moves[i])) {
 				this.do_move(moves[i]);
-				return;
+				return true;
 			}
 		}
+		return false;
 	}
 
 	evaluate_material(color) {
@@ -1514,10 +1515,3 @@ function qsearch(pos, alpha, beta, tt) {
 
 	return alpha;
 }
-
-
-function main() {
-
-}
-
-main();

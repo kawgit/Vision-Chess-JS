@@ -12,17 +12,17 @@
 <body>
     <div class="container">
         <div class="tab settings">
-            <h3>Board Settings</h3>
-            <div class="setting-item">
+            <h3>Board Settings (temporarily disabled with recent code changes)</h3>
+            <div class="setting-item" checked style="visibility: hidden;">
                 <input id="checkboxFlip" type="checkbox">
                 <label for="checkboxFlip">Flip board</label>
             </div>
-            <div class="setting-item">
+            <div class="setting-item" style="visibility: hidden;">
                 <button onclick="ux_undo()">Undo Move</button>
             </div>
-            <div class="setting-item">
+            <div class="setting-item" style="visibility: hidden;">
                 <label for="fen">FEN:</label>
-                <input id="fen" type="text" onchange="set_board_fen(this.value)">
+                <input id="fen" type="text" onchange="set_board_fen(this.value)" style="visibility: hidden;">
             </div>
             <h3>Engine Settings</h3>
             <div class="setting-item">
